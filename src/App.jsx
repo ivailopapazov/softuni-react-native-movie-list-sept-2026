@@ -14,10 +14,14 @@ export default function App() {
     setSelectedMovie(movie);
   };
 
+  const backHandler = () => {
+    setSelectedMovie(null);
+  };
+
   return (
     <View style={{ backgroundColor: colors.background, flex: 1 }}>
       {selectedMovie
-        ? <MovieDetails movie={selectedMovie} />
+        ? <MovieDetails movie={selectedMovie} onBack={backHandler} />
         : <MovieList movies={data.movies} onSelect={selectMovieHandler} />
       }
     </View>
